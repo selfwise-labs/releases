@@ -55,13 +55,16 @@ runs only when a build happened and `RELEASES_TOKEN` is set:
 - iOS: update the `ios` section (build number from the `eas build --json` output; the link is a
   constant per app).
 - The JSON update: read the file through the contents API (`gh api`), merge the section with
-  `jq`, write it back with the file's `sha`. Different apps touch different files, so parallel
-  runs do not collide. Both steps keep the private repo's own GitHub Release and APK as today.
+  `jq`, write it back with the file's `sha`, up to three tries: two apps releasing at once commit
+  to the same `main`, and the contents API answers 409 to the loser. Both steps keep the private
+  repo's own GitHub Release and APK as today. A re-run skips the steps once the EAS build exists,
+  so a failure after that is fixed by hand on GitHub.
 
 `RELEASES_TOKEN` is a fine-grained personal access token: owner `selfwise-labs`, repository
 `releases` only, permission Contents: read and write. Stored as an organization secret shared
-with the three private repos. Without it the upload steps are skipped and the release is what
-it is today.
+with the three private repos, read by a gate step and passed only to the two publish steps
+(not the job environment, where `npm ci` and `npx` could read it). Without it the publish
+steps are skipped and the release is what it is today.
 
 ### The app
 
