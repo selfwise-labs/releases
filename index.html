@@ -237,11 +237,11 @@ details .mono{margin-top:10px}
           <h3>In Claude</h3>
         </div>
         <p class="muted">On claude.ai: Settings, Connectors, Add custom connector. Paste the URL, choose No sign-in, and add one request header. Connectors added on the web also work in the Claude phone app.</p>
-        <div class="mono">https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp</div>
+        <div class="mono">https://mcp.selfwiselabs.com/mcp</div>
         <div class="mono">Authorization: Bearer &lt;your token&gt;</div>
         <details class="muted">
           <summary>Claude Code (terminal) &rarr;</summary>
-          <div class="mono">claude mcp add --transport http --scope user selfwise https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp --header "Authorization: Bearer &lt;your token&gt;"</div>
+          <div class="mono">claude mcp add --transport http --scope user selfwise https://mcp.selfwiselabs.com/mcp --header "Authorization: Bearer &lt;your token&gt;"</div>
         </details>
       </div>
       <div class="card assistant">
@@ -250,13 +250,13 @@ details .mono{margin-top:10px}
           <h3>In ChatGPT</h3>
         </div>
         <p class="muted">ChatGPT cannot send a header, so the token goes in the URL. On chatgpt.com/plugins (paid plans): the plus button, Add custom MCP server, paste the URL, choose No authentication, then Create as a plugin and Install it.</p>
-        <div class="mono">https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp/&lt;your token&gt;</div>
+        <div class="mono">https://mcp.selfwiselabs.com/mcp/&lt;your token&gt;</div>
         <p class="small muted">Anyone with that URL can read your data: keep it to yourself, and revoke the token from the Account screen if it leaks.</p>
         <details class="muted">
           <summary>Codex (terminal) &rarr;</summary>
           <p>Codex can send the header. Put the token in the environment variable SELFWISE_TOKEN and add to ~/.codex/config.toml:</p>
           <div class="mono pre">[mcp_servers.selfwise]
-url = "https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp"
+url = "https://mcp.selfwiselabs.com/mcp"
 bearer_token_env_var = "SELFWISE_TOKEN"</div>
         </details>
       </div>
