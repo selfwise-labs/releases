@@ -1,0 +1,4 @@
+{
+  "android": { "build": 6, "release": "v38", "fingerprint": null, "url": "https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk" },
+  "ios": { "build": 1, "release": "v38", "fingerprint": null, "url": "https://testflight.apple.com/join/EQMKsmwa" }
+}

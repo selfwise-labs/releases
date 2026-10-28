@@ -1,0 +1,4 @@
+{
+  "android": { "build": 6, "release": "v9", "fingerprint": null, "url": "https://github.com/selfwise-labs/releases/releases/download/sapor-latest/sapor.apk" },
+  "ios": { "build": 1, "release": "v9", "fingerprint": null, "url": "https://testflight.apple.com/join/mnCAbn61" }
+}

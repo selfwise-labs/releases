@@ -1,0 +1,4 @@
+{
+  "android": { "build": 4, "release": "v31", "fingerprint": null, "url": "https://github.com/selfwise-labs/releases/releases/download/selfwise-latest/selfwise.apk" },
+  "ios": { "build": 1, "release": "v31", "fingerprint": null, "url": "https://testflight.apple.com/join/hzXY9tcd" }
+}
