@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Selfwise, Sagax and Sapor: a journal and planner, a training log and a food diary for iPhone and Android, with a connector for Claude and ChatGPT.">
+<title>Selfwise Labs</title>
+<link rel="icon" href="assets/selfwise.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fffdfa;color:#1f1a16;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#1f1a16}a:hover{color:#6b625a}
+img{display:block}
+h1,h2,h3,p{margin:0;overflow-wrap:anywhere}
+ul{margin:0;padding-left:18px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px 56px;display:flex;flex-direction:column;gap:80px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid #1f1a16;color:#1f1a16;background:transparent}
+.btn:hover{color:#1f1a16;background:#fff6ec}
+.btn-ink{background:#1f1a16;color:#fff6ec}.btn-ink:hover{background:#3a322b;color:#fff6ec}
+.card{background:#fff;border:1px solid #ebe3d8;border-radius:20px}
+.cream{background:#fff6ec;border:1px solid #f0e4d2;border-radius:20px}
+.tile{display:flex;align-items:center;justify-content:center;background:#fff6ec;border:1px solid #f0e4d2;border-radius:18px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.num{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:#1f1a16;color:#fff6ec;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:1.5;background:#fff6ec;border:1px solid #f0e4d2;border-radius:10px;padding:10px 12px;color:#1f1a16;overflow-wrap:anywhere;word-break:break-all}
+.mono.pre{white-space:pre;word-break:normal;overflow-x:auto}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6b625a}
+.muted{color:#6b625a}
+.marks{display:inline-flex;align-items:center;gap:4px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;letter-spacing:-.01em;text-decoration:none}
+.brand .marks{padding:5px 7px;background:#fff6ec;border:1px solid #f0e4d2;border-radius:10px}
+.brand .marks img{width:20px;height:20px}
+.nav{display:flex;gap:28px;font-size:15px;font-weight:600;flex-wrap:wrap}
+.nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.hero{display:flex;flex-direction:column;gap:24px;max-width:800px}
+.hero h1{font-size:54px;line-height:1.06;font-weight:800;letter-spacing:-.025em}
+.hero p{font-size:19px;line-height:1.55}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.section{display:flex;flex-direction:column;gap:28px}
+.section-head{display:flex;flex-direction:column;gap:8px;max-width:760px}
+.section-head h2{font-size:34px;font-weight:800;letter-spacing:-.02em}
+.section-head p{font-size:17px;line-height:1.55}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.app{display:flex;flex-direction:column;gap:18px;padding:28px}
+.app .tile{width:72px;height:72px}.app .tile img{width:52px;height:52px}
+.app h3{font-size:26px;font-weight:800;letter-spacing:-.01em}
+.app .tagline{font-size:15px;font-weight:600}
+.app p.what{font-size:15px;line-height:1.6}
+.app ul{font-size:14px;line-height:1.8}
+.app .get{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.note{font-size:14px;line-height:1.6;max-width:820px}
+.beta{display:flex;gap:32px;padding:36px;align-items:center;flex-wrap:wrap}
+.beta .text{flex:1 1 360px;display:flex;flex-direction:column;gap:12px}
+.beta h2{font-size:26px;font-weight:800;letter-spacing:-.01em}
+.beta p{font-size:16px;line-height:1.6}
+.unlocks{flex:0 1 320px;display:flex;flex-direction:column;gap:12px;padding:22px 24px}
+.unlocks .list{display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600}
+.unlocks .list span{display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.dot{width:8px;height:8px;border-radius:50%;background:#1f1a16;flex:0 0 8px;margin-top:7px}
+.steps{display:flex;gap:28px;padding:28px;flex-wrap:wrap}
+.steps .step{flex:1 1 300px}
+.steps p,.assistant p{font-size:15px;line-height:1.6}
+.assistant{display:flex;flex-direction:column;gap:16px;padding:28px;min-width:0}
+.assistant h3{font-size:20px;font-weight:800}
+.assistant .small{font-size:13px;line-height:1.5}
+details{font-size:14px}
+details summary{list-style:none;cursor:pointer;font-weight:700;color:#1f1a16;min-height:44px;display:flex;align-items:center}
+details summary::-webkit-details-marker{display:none}
+details p{margin-top:10px;line-height:1.5}
+details .mono{margin-top:10px}
+.ask{display:flex;flex-direction:column;gap:16px;padding:28px;background:#1f1a16;color:#fff6ec;border-radius:20px}
+.ask .eyebrow{color:#c9bfb3}
+.ask p.q{background:#2e2721;border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.5}
+.ask p.small{font-size:13px;line-height:1.5;color:#c9bfb3}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;border-top:1px solid #ebe3d8;font-size:14px}
+.footer .marks img{width:16px;height:16px}
+.footer .links{display:flex;gap:20px;flex-wrap:wrap}
+.footer .links a{min-height:44px;display:inline-flex;align-items:center}
+@media (max-width:760px){
+  .wrap{padding:0 16px 40px;gap:48px}
+  .header{padding-top:16px}
+  .nav{gap:4px 18px;font-size:14px}
+  .hero h1{font-size:36px}
+  .hero p{font-size:17px}
+  .actions .btn{flex:1 1 100%}
+  .section-head h2{font-size:28px}
+  .section-head p{font-size:16px}
+  .grid3,.grid2{grid-template-columns:1fr;gap:16px}
+  .app,.assistant,.ask,.steps{padding:20px}
+  .steps{gap:20px}
+  .beta{padding:24px 20px;gap:20px}
+  .beta h2{font-size:22px}
+  .unlocks{flex:1 1 100%}
+  .mono{font-size:12px}
+  .footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="header">
+    <a href="#top" class="brand">
+      <span class="marks" aria-hidden="true">
+        <img src="assets/selfwise.svg" alt="">
+        <img src="assets/sagax.svg" alt="">
+        <img src="assets/sapor.svg" alt="">
+      </span>
+      Selfwise Labs
+    </a>
+    <nav class="nav">
+      <a href="#apps">Apps</a>
+      <a href="#assistants">Claude &amp; ChatGPT</a>
+      <a href="#beta">Beta</a>
+      <a href="https://github.com/selfwise-labs/releases/releases">Releases</a>
+    </nav>
+  </header>
+
+  <section id="top" class="hero">
+    <span class="eyebrow">Three apps &middot; iPhone and Android &middot; in beta</span>
+    <h1>Keep the days, the training and the meals. Then ask about them.</h1>
+    <p class="muted">A journal and planner, a training log, and a food diary. Each keeps its data on your phone and works without an account. With an account, your phones stay in sync and Claude or ChatGPT can read and write your data.</p>
+    <div class="actions">
+      <a class="btn btn-ink" href="#apps">Get the apps</a>
+      <a class="btn" href="#assistants">Connect an assistant</a>
+    </div>
+  </section>
+
+  <section id="apps" class="section">
+    <div class="section-head">
+      <span class="eyebrow">The apps</span>
+      <h2>One for each part of the day</h2>
+    </div>
+    <div class="grid3">
+
+      <article class="card app">
+        <span class="tile"><img src="assets/selfwise.svg" alt="Selfwise's owl"></span>
+        <div>
+          <h3>Selfwise</h3>
+          <p class="tagline" style="color:#00444c">Journal, plan, sleep</p>
+        </div>
+        <p class="what muted">A personal organizer. Journal the day, plan the week, log your sleep, and keep activities that level up the more you do them.</p>
+        <ul class="muted">
+          <li>Morning, work and evening sections</li>
+          <li>Activities with levels and streaks</li>
+          <li>Reminders before planned items</li>
+        </ul>
+        <div class="get">
+          <a class="btn btn-ink" href="https://testflight.apple.com/join/hzXY9tcd">iPhone &middot; TestFlight</a>
+          <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/selfwise-latest/selfwise.apk">Android &middot; Download APK</a>
+        </div>
+      </article>
+
+      <article class="card app">
+        <span class="tile"><img src="assets/sagax.svg" alt="Sagax's jaguar"></span>
+        <div>
+          <h3>Sagax</h3>
+          <p class="tagline" style="color:#66132f">Strength and endurance</p>
+        </div>
+        <p class="what muted">A training log. Follow a periodised plan, record every set, run, ride and swim, and see your progress by exercise and by muscle.</p>
+        <ul class="muted">
+          <li>Plans that progress from your sets</li>
+          <li>Runs from Health Connect or by hand</li>
+          <li>Programs written by your assistant</li>
+        </ul>
+        <div class="get">
+          <a class="btn btn-ink" href="https://testflight.apple.com/join/EQMKsmwa">iPhone &middot; TestFlight</a>
+          <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk">Android &middot; Download APK</a>
+        </div>
+      </article>
+
+      <article class="card app">
+        <span class="tile"><img src="assets/sapor.svg" alt="Sapor's bear"></span>
+        <div>
+          <h3>Sapor</h3>
+          <p class="tagline" style="color:#1a6613">Food diary, from photos</p>
+        </div>
+        <p class="what muted">Snap the plate and your assistant names the foods and fills in the full nutrient profile, down to the micronutrients, against your targets.</p>
+        <ul class="muted">
+          <li>Meals, saved meals and targets</li>
+          <li>Daily weigh-in with a 7-day average</li>
+          <li>Photos labelled by your assistant</li>
+        </ul>
+        <div class="get">
+          <a class="btn btn-ink" href="https://testflight.apple.com/join/mnCAbn61">iPhone &middot; TestFlight</a>
+          <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/sapor-latest/sapor.apk">Android &middot; Download APK</a>
+        </div>
+      </article>
+    </div>
+    <p class="note muted">iPhone: install the TestFlight app first, then open the link. Android: open the APK link on the phone and allow the browser to install apps when asked; a newer APK installs over the old one and keeps your data. Most updates arrive on their own; when one needs a reinstall, the app shows an Update button.</p>
+  </section>
+
+  <section id="beta" class="cream beta">
+    <div class="text">
+      <span class="eyebrow">Beta</span>
+      <h2>Online features need an invite code</h2>
+      <p class="muted">Everything on the phone works right away, no account. Creating an account asks for an invite code. If you got this page from Cristian, ask him for one.</p>
+    </div>
+    <div class="card unlocks">
+      <span class="eyebrow">What the invite unlocks</span>
+      <div class="list">
+        <span><span class="dot" aria-hidden="true"></span>Sync between your phones</span>
+        <span><span class="dot" aria-hidden="true"></span>The Claude and ChatGPT connector</span>
+        <span><span class="dot" aria-hidden="true"></span>Photo labelling in Sapor</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="assistants" class="section">
+    <div class="section-head">
+      <span class="eyebrow">Claude &amp; ChatGPT</span>
+      <h2>Talk to your data</h2>
+      <p class="muted">One connector gives your assistant the data of all three apps: ask about your training, your week or what you ate, have it write a training program, or label a meal photo. Two steps in the app, then one in the assistant you use.</p>
+    </div>
+
+    <div class="cream steps">
+      <div class="step">
+        <span class="num">1</span>
+        <p class="muted"><strong style="color:#1f1a16">Create an account</strong> in any of the apps: Account, Create account, with your invite code. The same account works in all three.</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <p class="muted"><strong style="color:#1f1a16">Create a token</strong> on the Account screen, name it after the assistant and copy it. You can revoke it there any time.</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card assistant">
+        <div class="step" style="align-items:center">
+          <span class="num">3</span>
+          <h3>In Claude</h3>
+        </div>
+        <p class="muted">On claude.ai: Settings, Connectors, Add custom connector. Paste the URL, choose No sign-in, and add one request header. Connectors added on the web also work in the Claude phone app.</p>
+        <div class="mono">https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp</div>
+        <div class="mono">Authorization: Bearer &lt;your token&gt;</div>
+        <details class="muted">
+          <summary>Claude Code (terminal) &rarr;</summary>
+          <div class="mono">claude mcp add --transport http --scope user selfwise https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp --header "Authorization: Bearer &lt;your token&gt;"</div>
+        </details>
+      </div>
+      <div class="card assistant">
+        <div class="step" style="align-items:center">
+          <span class="num">3</span>
+          <h3>In ChatGPT</h3>
+        </div>
+        <p class="muted">ChatGPT cannot send a header, so the token goes in the URL. On chatgpt.com/plugins (paid plans): the plus button, Add custom MCP server, paste the URL, choose No authentication, then Create as a plugin and Install it.</p>
+        <div class="mono">https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp/&lt;your token&gt;</div>
+        <p class="small muted">Anyone with that URL can read your data: keep it to yourself, and revoke the token from the Account screen if it leaks.</p>
+        <details class="muted">
+          <summary>Codex (terminal) &rarr;</summary>
+          <p>Codex can send the header. Put the token in the environment variable SELFWISE_TOKEN and add to ~/.codex/config.toml:</p>
+          <div class="mono pre">[mcp_servers.selfwise]
+url = "https://selfwise-mcp.cristian-matei-toader.workers.dev/mcp"
+bearer_token_env_var = "SELFWISE_TOKEN"</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="ask">
+      <span class="eyebrow">Things to ask</span>
+      <div class="grid2" style="gap:10px">
+        <p class="q">How did my squat progress over the last eight weeks?</p>
+        <p class="q">Write me a 6-week half marathon program with two strength days.</p>
+        <p class="q">Label the lunch photo I just took.</p>
+        <p class="q">What did I journal about sleep last month, and how did I actually sleep?</p>
+      </div>
+      <p class="small">The assistant reads only the account the token belongs to. Plans and programs it writes show up on the phone at the next sync.</p>
+    </div>
+  </section>
+
+  <footer class="footer muted">
+    <span style="display:flex;align-items:center;gap:10px">
+      <span class="marks" aria-hidden="true">
+        <img src="assets/selfwise.svg" alt="">
+        <img src="assets/sagax.svg" alt="">
+        <img src="assets/sapor.svg" alt="">
+      </span>
+      Selfwise Labs &middot; made by Cristian Toader
+    </span>
+    <span class="links">
+      <a href="https://github.com/selfwise-labs/releases/releases">All releases</a>
+      <a href="https://github.com/selfwise-labs/releases">Source of this page</a>
+    </span>
+  </footer>
+</div>
+</body>
+</html>

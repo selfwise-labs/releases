@@ -3,6 +3,9 @@
 Three personal apps by Cristian Toader. Each one runs on Android and iPhone, keeps its data on
 the phone, and has an optional account that syncs between your phones.
 
+The landing page: https://selfwise-labs.github.io/releases/ (this repository's `index.html`,
+served by GitHub Pages).
+
 | App | What it is | iPhone | Android |
 | --- | --- | --- | --- |
 | **Selfwise** | A personal organizer: journal, plan, sleep, activities with levels. | [TestFlight](https://testflight.apple.com/join/hzXY9tcd) | [Download APK](https://github.com/selfwise-labs/releases/releases/download/selfwise-latest/selfwise.apk) |
