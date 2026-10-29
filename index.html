@@ -11,13 +11,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:#fffdfa;color:#1f1a16;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:#1f1a16}a:hover{color:#6b625a}
-img{display:block}
-h1,h2,h3,p{margin:0;overflow-wrap:anywhere}
+img{display:block;max-width:100%}
+h1,h2,h3,p,figure{margin:0;overflow-wrap:anywhere}
 ul{margin:0;padding-left:18px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px 56px;display:flex;flex-direction:column;gap:80px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px 56px;display:flex;flex-direction:column;gap:88px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid #1f1a16;color:#1f1a16;background:transparent}
 .btn:hover{color:#1f1a16;background:#fff6ec}
 .btn-ink{background:#1f1a16;color:#fff6ec}.btn-ink:hover{background:#3a322b;color:#fff6ec}
@@ -37,24 +37,47 @@ ul{margin:0;padding-left:18px}
 .brand .marks img{width:20px;height:20px}
 .nav{display:flex;gap:28px;font-size:15px;font-weight:600;flex-wrap:wrap}
 .nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.hero{display:flex;flex-direction:column;gap:24px;max-width:800px}
-.hero h1{font-size:54px;line-height:1.06;font-weight:800;letter-spacing:-.025em}
-.hero p{font-size:19px;line-height:1.55}
+
+/* Phone frames: a plain dark bezel around a real capture (540x928 after the gesture bar is cropped). */
+.phone{position:relative;width:100%;border-radius:16%/9.3%;padding:2.4%;background:#1f1a16;box-shadow:0 24px 48px -24px rgba(31,26,22,.45)}
+.phone img{display:block;width:100%;height:auto;aspect-ratio:540/928;border-radius:14%/8.2%;object-fit:cover;background:#f8f9fa}
+.phone::before{content:"";position:absolute;left:30%;right:30%;top:1.4%;height:1.3%;border-radius:0 0 5px 5px;background:#1f1a16;opacity:.9}
+figure.shot{display:flex;flex-direction:column;gap:12px;align-items:center}
+figure.shot figcaption{font-size:13px;font-weight:600;color:#6b625a;text-align:center;line-height:1.45;max-width:240px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:center;padding-top:24px}
+.hero .copy{display:flex;flex-direction:column;gap:22px}
+.hero h1{font-size:50px;line-height:1.06;font-weight:800;letter-spacing:-.025em;text-wrap:balance}
+.hero p{font-size:18px;line-height:1.55}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-phones{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end;padding:52px 24px 0;background:#fff6ec;border:1px solid #f0e4d2;border-radius:28px;overflow:hidden}
+.hero-phones .phone{box-shadow:0 18px 36px -20px rgba(31,26,22,.5);margin-bottom:-24px}
+.hero-phones .phone:nth-child(2){margin-bottom:-48px}
+.hero-phones .tag{position:absolute;top:14px;display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 6px;background:#fff;border:1px solid #f0e4d2;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.04em}
+.hero-phones .tag img{width:16px;height:16px}
+
+/* App sections */
 .section{display:flex;flex-direction:column;gap:28px}
 .section-head{display:flex;flex-direction:column;gap:8px;max-width:760px}
-.section-head h2{font-size:34px;font-weight:800;letter-spacing:-.02em}
+.section-head h2{font-size:34px;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
 .section-head p{font-size:17px;line-height:1.55}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.app{display:flex;flex-direction:column;gap:18px;padding:28px}
-.app .tile{width:72px;height:72px}.app .tile img{width:52px;height:52px}
-.app h3{font-size:26px;font-weight:800;letter-spacing:-.01em}
-.app .tagline{font-size:15px;font-weight:600}
+.apps{display:flex;flex-direction:column;gap:56px}
+.app{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:40px;align-items:center;padding:36px;scroll-margin-top:16px}
+.app.flip .text{order:2}
+.app .text{display:flex;flex-direction:column;gap:18px;min-width:0}
+.app .tile{width:64px;height:64px}.app .tile img{width:46px;height:46px}
+.app h3{font-size:30px;font-weight:800;letter-spacing:-.01em}
+.app .tagline{font-size:15px;font-weight:700}
 .app p.what{font-size:15px;line-height:1.6}
 .app ul{font-size:14px;line-height:1.8}
-.app .get{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.app .get{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.app .get .btn{flex:1 1 150px}
+.screens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:end;min-width:0}
+.screens figure.shot:nth-child(2){transform:translateY(-16px)}
 .note{font-size:14px;line-height:1.6;max-width:820px}
+
+/* Beta, assistants, footer */
 .beta{display:flex;gap:32px;padding:36px;align-items:center;flex-wrap:wrap}
 .beta .text{flex:1 1 360px;display:flex;flex-direction:column;gap:12px}
 .beta h2{font-size:26px;font-weight:800;letter-spacing:-.01em}
@@ -63,6 +86,7 @@ ul{margin:0;padding-left:18px}
 .unlocks .list{display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:600}
 .unlocks .list span{display:flex;align-items:flex-start;gap:10px;line-height:1.5}
 .dot{width:8px;height:8px;border-radius:50%;background:#1f1a16;flex:0 0 8px;margin-top:7px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .steps{display:flex;gap:28px;padding:28px;flex-wrap:wrap}
 .steps .step{flex:1 1 300px}
 .steps p,.assistant p{font-size:15px;line-height:1.6}
@@ -82,17 +106,36 @@ details .mono{margin-top:10px}
 .footer .marks img{width:16px;height:16px}
 .footer .links{display:flex;gap:20px;flex-wrap:wrap}
 .footer .links a{min-height:44px;display:inline-flex;align-items:center}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:32px}
+  .hero h1{font-size:40px}
+  .app{grid-template-columns:1fr;gap:28px;padding:24px 20px}
+  .app.flip .text{order:0}
+  /* the three screens become a swipeable, snap-aligned row that bleeds to the card's edges */
+  .screens{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:16px 20px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .screens::-webkit-scrollbar{display:none}
+  .screens figure.shot{flex:0 0 min(68%,250px);scroll-snap-align:center;transform:none!important}
+}
 @media (max-width:760px){
-  .wrap{padding:0 16px 40px;gap:48px}
+  .wrap{padding:0 16px 40px;gap:56px}
   .header{padding-top:16px}
   .nav{gap:4px 18px;font-size:14px}
-  .hero h1{font-size:36px}
-  .hero p{font-size:17px}
+  .hero{padding-top:8px}
+  .hero h1{font-size:34px}
+  .hero p{font-size:16px}
   .actions .btn{flex:1 1 100%}
+  .hero-phones{gap:10px;padding:52px 14px 0;border-radius:22px}
+  .hero-phones .phone{margin-bottom:-18px}
+    .hero-phones .phone::before{display:none}
+  .hero-phones .phone:nth-child(2){margin-bottom:-34px}
   .section-head h2{font-size:28px}
   .section-head p{font-size:16px}
-  .grid3,.grid2{grid-template-columns:1fr;gap:16px}
-  .app,.assistant,.ask,.steps{padding:20px}
+  .apps{gap:28px}
+  .app h3{font-size:26px}
+  .screens{margin:0 -20px;padding:12px 20px 4px}
+  .grid2{grid-template-columns:1fr;gap:16px}
+  .assistant,.ask,.steps{padding:20px}
   .steps{gap:20px}
   .beta{padding:24px 20px;gap:20px}
   .beta h2{font-size:22px}
@@ -100,6 +143,7 @@ details .mono{margin-top:10px}
   .mono{font-size:12px}
   .footer{flex-direction:column;align-items:flex-start}
 }
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -123,12 +167,22 @@ details .mono{margin-top:10px}
   </header>
 
   <section id="top" class="hero">
-    <span class="eyebrow">Three apps &middot; iPhone and Android &middot; in beta</span>
-    <h1>Keep the days, the training and the meals. Then ask about them.</h1>
-    <p class="muted">A journal and planner, a training log, and a food diary. Each keeps its data on your phone and works without an account. With an account, your phones stay in sync and Claude or ChatGPT can read and write your data.</p>
-    <div class="actions">
-      <a class="btn btn-ink" href="#apps">Get the apps</a>
-      <a class="btn" href="#assistants">Connect an assistant</a>
+    <div class="copy">
+      <span class="eyebrow">Three apps &middot; iPhone and Android &middot; in beta</span>
+      <h1>Keep the days, the training and the meals. Then ask about them.</h1>
+      <p class="muted">A journal and planner, a training log, and a food diary. Each keeps its data on your phone and works without an account. With an account, your phones stay in sync and Claude or ChatGPT can read and write your data.</p>
+      <div class="actions">
+        <a class="btn btn-ink" href="#apps">Get the apps</a>
+        <a class="btn" href="#assistants">Connect an assistant</a>
+      </div>
+    </div>
+    <div class="hero-phones" aria-label="One screen of each app">
+      <span class="tag" style="left:14px"><img src="assets/selfwise.svg" alt="">Selfwise</span>
+      <span class="tag" style="left:50%;transform:translateX(-50%)"><img src="assets/sagax.svg" alt="">Sagax</span>
+      <span class="tag" style="right:14px"><img src="assets/sapor.svg" alt="">Sapor</span>
+      <div class="phone"><img src="assets/screens/selfwise-journal.webp" alt="Selfwise: a day as a timeline with sleep, routines and entries" width="540" height="928"></div>
+      <div class="phone"><img src="assets/screens/sagax-home.webp" alt="Sagax: volume, strength and running trends above the workout list" width="540" height="928"></div>
+      <div class="phone"><img src="assets/screens/sapor-diary.webp" alt="Sapor: a day of meals with calories and macros against targets" width="540" height="928"></div>
     </div>
   </section>
 
@@ -136,60 +190,82 @@ details .mono{margin-top:10px}
     <div class="section-head">
       <span class="eyebrow">The apps</span>
       <h2>One for each part of the day</h2>
+      <p class="muted">Real screens, demo data. Each app is free, works offline and has no feed, no ads and no subscription.</p>
     </div>
-    <div class="grid3">
+    <div class="apps">
 
-      <article class="card app">
-        <span class="tile"><img src="assets/selfwise.svg" alt="Selfwise's owl"></span>
-        <div>
-          <h3>Selfwise</h3>
-          <p class="tagline" style="color:#00444c">Journal, plan, sleep</p>
+      <article class="card app" id="selfwise">
+        <div class="text">
+          <span class="tile"><img src="assets/selfwise.svg" alt="Selfwise's owl"></span>
+          <div>
+            <h3>Selfwise</h3>
+            <p class="tagline" style="color:#00444c">Journal, plan, sleep</p>
+          </div>
+          <p class="what muted">A personal organizer. The day is a timeline: sleep, a morning routine, work, the things you planned and the things you did. Activities level up the more you do them, and the analytics show where the time went.</p>
+          <ul class="muted">
+            <li>Morning, work and evening sections with checklists</li>
+            <li>Activities with levels, XP and streak multipliers</li>
+            <li>Sleep against your plan, reminders before planned items</li>
+          </ul>
+          <div class="get">
+            <a class="btn btn-ink" href="https://testflight.apple.com/join/hzXY9tcd">iPhone &middot; TestFlight</a>
+            <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/selfwise-latest/selfwise.apk">Android &middot; APK</a>
+          </div>
         </div>
-        <p class="what muted">A personal organizer. Journal the day, plan the week, log your sleep, and keep activities that level up the more you do them.</p>
-        <ul class="muted">
-          <li>Morning, work and evening sections</li>
-          <li>Activities with levels and streaks</li>
-          <li>Reminders before planned items</li>
-        </ul>
-        <div class="get">
-          <a class="btn btn-ink" href="https://testflight.apple.com/join/hzXY9tcd">iPhone &middot; TestFlight</a>
-          <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/selfwise-latest/selfwise.apk">Android &middot; Download APK</a>
+        <div class="screens">
+          <figure class="shot"><div class="phone"><img src="assets/screens/selfwise-journal.webp" alt="The Journal: today as a timeline" width="540" height="928" loading="lazy"></div><figcaption>The journal: today as a timeline, done and still to do</figcaption></figure>
+          <figure class="shot"><div class="phone"><img src="assets/screens/selfwise-activities.webp" alt="Activities with levels and XP bars" width="540" height="928" loading="lazy"></div><figcaption>Activities level up as you log them; streaks multiply the XP</figcaption></figure>
+          <figure class="shot"><div class="phone"><img src="assets/screens/selfwise-analytics.webp" alt="Analytics: XP over time per activity" width="540" height="928" loading="lazy"></div><figcaption>XP over time, one line per activity, and where each one stands today</figcaption></figure>
         </div>
       </article>
 
-      <article class="card app">
-        <span class="tile"><img src="assets/sagax.svg" alt="Sagax's jaguar"></span>
-        <div>
-          <h3>Sagax</h3>
-          <p class="tagline" style="color:#66132f">Strength and endurance</p>
+      <article class="card app flip" id="sagax">
+        <div class="text">
+          <span class="tile"><img src="assets/sagax.svg" alt="Sagax's jaguar"></span>
+          <div>
+            <h3>Sagax</h3>
+            <p class="tagline" style="color:#66132f">Strength and endurance</p>
+          </div>
+          <p class="what muted">A training log. Record every set, run, ride and swim; follow a plan that sets the next weights from what you lifted; and watch the trends: volume, estimated 1RM per lift, running fitness, load per muscle.</p>
+          <ul class="muted">
+            <li>Plans (5/3/1, mesocycles, double progression, 5 km, 10 km, FTP builder)</li>
+            <li>Runs from Health Connect or logged by hand, with zones and est. VO&#8322;max</li>
+            <li>Programs written by your assistant, straight into the app</li>
+          </ul>
+          <div class="get">
+            <a class="btn btn-ink" href="https://testflight.apple.com/join/EQMKsmwa">iPhone &middot; TestFlight</a>
+            <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk">Android &middot; APK</a>
+          </div>
         </div>
-        <p class="what muted">A training log. Follow a periodised plan, record every set, run, ride and swim, and see your progress by exercise and by muscle.</p>
-        <ul class="muted">
-          <li>Plans that progress from your sets</li>
-          <li>Runs from Health Connect or by hand</li>
-          <li>Programs written by your assistant</li>
-        </ul>
-        <div class="get">
-          <a class="btn btn-ink" href="https://testflight.apple.com/join/EQMKsmwa">iPhone &middot; TestFlight</a>
-          <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk">Android &middot; Download APK</a>
+        <div class="screens">
+          <figure class="shot"><div class="phone"><img src="assets/screens/sagax-home.webp" alt="Home: trend cards above the workouts" width="540" height="928" loading="lazy"></div><figcaption>Home: trends from every set and run, then the workouts</figcaption></figure>
+          <figure class="shot"><div class="phone"><img src="assets/screens/sagax-exercise.webp" alt="A live workout's exercise screen with the rest timer" width="540" height="928" loading="lazy"></div><figcaption>A live workout: sets with reps in reserve, last time, the rest timer</figcaption></figure>
+          <figure class="shot"><div class="phone"><img src="assets/screens/sagax-plan.webp" alt="A 5/3/1 plan with its cycle, maxes and days" width="540" height="928" loading="lazy"></div><figcaption>A 5/3/1 plan: training maxes, the cycle, one card per day</figcaption></figure>
         </div>
       </article>
 
-      <article class="card app">
-        <span class="tile"><img src="assets/sapor.svg" alt="Sapor's bear"></span>
-        <div>
-          <h3>Sapor</h3>
-          <p class="tagline" style="color:#1a6613">Food diary, from photos</p>
+      <article class="card app" id="sapor">
+        <div class="text">
+          <span class="tile"><img src="assets/sapor.svg" alt="Sapor's bear"></span>
+          <div>
+            <h3>Sapor</h3>
+            <p class="tagline" style="color:#1a6613">Food diary, from photos</p>
+          </div>
+          <p class="what muted">Snap the plate and your assistant names the foods and fills in the full nutrient profile, down to the micronutrients, against your targets. Or search the USDA database and log by the gram.</p>
+          <ul class="muted">
+            <li>Meals, saved meals and targets for calories and macros</li>
+            <li>Every mineral and vitamin of the day against the reference intake</li>
+            <li>Daily weigh-in with a 7-day average</li>
+          </ul>
+          <div class="get">
+            <a class="btn btn-ink" href="https://testflight.apple.com/join/mnCAbn61">iPhone &middot; TestFlight</a>
+            <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/sapor-latest/sapor.apk">Android &middot; APK</a>
+          </div>
         </div>
-        <p class="what muted">Snap the plate and your assistant names the foods and fills in the full nutrient profile, down to the micronutrients, against your targets.</p>
-        <ul class="muted">
-          <li>Meals, saved meals and targets</li>
-          <li>Daily weigh-in with a 7-day average</li>
-          <li>Photos labelled by your assistant</li>
-        </ul>
-        <div class="get">
-          <a class="btn btn-ink" href="https://testflight.apple.com/join/mnCAbn61">iPhone &middot; TestFlight</a>
-          <a class="btn" href="https://github.com/selfwise-labs/releases/releases/download/sapor-latest/sapor.apk">Android &middot; Download APK</a>
+        <div class="screens">
+          <figure class="shot"><div class="phone"><img src="assets/screens/sapor-diary.webp" alt="The diary: a day of meals against targets" width="540" height="928" loading="lazy"></div><figcaption>A day: calories and macros against targets, the weigh-in, then each meal</figcaption></figure>
+          <figure class="shot"><div class="phone"><img src="assets/screens/sapor-nutrients.webp" alt="Nutrients of the day against reference intakes" width="540" height="928" loading="lazy"></div><figcaption>Every nutrient of the day against the reference intake</figcaption></figure>
+          <figure class="shot"><div class="phone"><img src="assets/screens/sapor-weight.webp" alt="Weight chart with the 7-day average" width="540" height="928" loading="lazy"></div><figcaption>Weight, with the 7-day average that smooths the daily noise</figcaption></figure>
         </div>
       </article>
     </div>
