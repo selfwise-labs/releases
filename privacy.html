@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="What the Selfwise, Sagax and Sapor apps store, where, who can read it, and how to delete it.">
+<title>Privacy · Selfwise Labs</title>
+<link rel="icon" href="assets/selfwise.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#fffdfa;color:#1f1a16;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#1f1a16}a:hover{color:#6b625a}
+img{display:block;max-width:100%}
+h1,h2,h3,p{margin:0;overflow-wrap:anywhere}
+ul{margin:0;padding-left:18px}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px 56px;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6b625a}
+.muted{color:#6b625a}
+.marks{display:inline-flex;align-items:center;gap:4px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;letter-spacing:-.01em;text-decoration:none}
+.brand .marks{padding:5px 7px;background:#fff6ec;border:1px solid #f0e4d2;border-radius:10px}
+.brand .marks img{width:20px;height:20px}
+.nav{display:flex;gap:28px;font-size:15px;font-weight:600;flex-wrap:wrap}
+.nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+
+.title{display:flex;flex-direction:column;gap:14px;padding-top:16px}
+.title h1{font-size:40px;line-height:1.08;font-weight:800;letter-spacing:-.025em;text-wrap:balance}
+.title p{font-size:17px;line-height:1.55}
+.summary{background:#fff6ec;border:1px solid #f0e4d2;border-radius:20px;padding:24px 26px;display:flex;flex-direction:column;gap:10px}
+.summary p{font-size:16px;line-height:1.6}
+.policy{display:flex;flex-direction:column;gap:36px}
+.policy section{display:flex;flex-direction:column;gap:12px;scroll-margin-top:16px}
+.policy h2{font-size:24px;font-weight:800;letter-spacing:-.015em}
+.policy h3{font-size:16px;font-weight:800;margin-top:6px}
+.policy p,.policy li{font-size:15px;line-height:1.65}
+.policy ul{display:flex;flex-direction:column;gap:6px}
+.policy strong{color:#1f1a16}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid #ebe3d8}
+th{font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6b625a}
+td:first-child{font-weight:700;white-space:nowrap}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;background:#fff6ec;border:1px solid #f0e4d2;border-radius:6px;padding:1px 6px;overflow-wrap:anywhere}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;border-top:1px solid #ebe3d8;font-size:14px}
+.footer .marks img{width:16px;height:16px}
+.footer .links{display:flex;gap:20px;flex-wrap:wrap}
+.footer .links a{min-height:44px;display:inline-flex;align-items:center}
+
+@media (max-width:760px){
+  .wrap{padding:0 16px 40px;gap:32px}
+  .header{padding-top:16px}
+  .nav{gap:4px 18px;font-size:14px}
+  .title h1{font-size:30px}
+  .title p{font-size:16px}
+  .summary{padding:18px 18px}
+  .policy h2{font-size:21px}
+  table,thead,tbody,tr,th,td{display:block}
+  thead{display:none}
+  tr{border-bottom:1px solid #ebe3d8;padding:10px 0}
+  td{padding:2px 0;border:0}
+  td:first-child{white-space:normal;padding-top:4px}
+  .footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="header">
+    <a class="brand" href="./">
+      <span class="marks" aria-hidden="true">
+        <img src="assets/selfwise.svg" alt="">
+        <img src="assets/sagax.svg" alt="">
+        <img src="assets/sapor.svg" alt="">
+      </span>
+      Selfwise Labs
+    </a>
+    <nav class="nav">
+      <a href="./#apps">Apps</a>
+      <a href="./#assistants">Claude &amp; ChatGPT</a>
+      <a href="./#beta">Beta</a>
+      <a href="https://github.com/selfwise-labs/releases/releases">Releases</a>
+    </nav>
+  </header>
+
+  <div class="title">
+    <span class="eyebrow">Privacy policy &middot; Selfwise, Sagax and Sapor &middot; 31 October 2026</span>
+    <h1>What the apps store, where, and who can read it</h1>
+    <p class="muted">This policy covers the three apps, the account service behind them and the connector for Claude and ChatGPT. It is written by the one person who runs them, Cristian Toader, and it says what actually happens.</p>
+  </div>
+
+  <div class="summary">
+    <p><strong>Without an account, nothing you enter leaves your phone.</strong> The apps keep their data in a database on the device. The only connections they make are a check for updates at start.</p>
+    <p><strong>With an account, your data is copied to a server so your phones stay in sync</strong> and, if you choose, so Claude or ChatGPT can read it. The server stores a username, a password hash, your app data and Sapor's meal photos. No email address, no name, no location, no advertising identifiers, no analytics.</p>
+    <p><strong>Nothing is sold, shared or used for advertising.</strong> Only you, your assistant if you connect one, and Cristian as the operator can read your data. You can delete any of it.</p>
+  </div>
+
+  <div class="policy">
+
+    <section id="who">
+      <h2>Who runs this</h2>
+      <p class="muted">Cristian Toader, publishing as Selfwise Labs, makes and operates the apps, the server and this page. There is no company behind them. The apps are in beta and used by people Cristian knows; accounts are created with an invite code he hands out. For any question or request about your data, write to him the way you got your invite code, or open an issue at <a href="https://github.com/selfwise-labs/releases/issues">github.com/selfwise-labs/releases/issues</a>.</p>
+    </section>
+
+    <section id="phone">
+      <h2>On your phone</h2>
+      <p class="muted">Each app stores everything you enter in a database on the phone: Selfwise your journal, schedule, sleep and activity records; Sagax your workouts, sets, runs and plans; Sapor your meals, foods, weight entries and the photos you take of them. This data is yours, it is in the app's private storage, and the apps have no analytics, crash reporting or advertising code. Deleting the app deletes it.</p>
+      <ul class="muted">
+        <li><strong>Health Connect (Sagax, Android).</strong> With your permission Sagax reads exercise sessions from Health Connect: distance, heart rate, elevation, calories, power and cadence of runs and rides, including past ones. It stores them as runs on the phone. They reach the server only if you have an account, as part of the sync described below. Sagax writes nothing to Health Connect.</li>
+        <li><strong>Camera and photos (Sapor).</strong> Sapor takes or picks meal photos with your permission and resizes them to 1280 pixels on the phone.</li>
+        <li><strong>Notifications (Selfwise, Sagax).</strong> Reminders and rest timers are scheduled on the phone. No push notification service is involved.</li>
+        <li><strong>Update checks.</strong> At start each app asks Expo's update server (<span class="mono">u.expo.dev</span>) whether a newer version of the app's code exists, and reads a small file in this repository (<span class="mono">raw.githubusercontent.com</span>) to learn whether a newer install is available. Those servers see your phone's IP address, the app and its version; neither receives anything you entered. On iPhone, TestFlight also sends Apple crash reports and your TestFlight feedback, which Apple shows to Cristian under <a href="https://www.apple.com/legal/internet-services/itunes/testflight/">Apple's TestFlight terms</a>.</li>
+      </ul>
+    </section>
+
+    <section id="account">
+      <h2>With an account</h2>
+      <p class="muted">Creating an account asks for a username, a password and the invite code. From then on each signed-in phone pushes every change to the server and pulls the changes of your other phones. The server stores:</p>
+      <table>
+        <thead><tr><th>Data</th><th>What exactly</th><th>Kept until</th></tr></thead>
+        <tbody>
+          <tr><td>Account</td><td>The username you chose and a hash of your password (PBKDF2-SHA256, 100 000 iterations). The password itself is never stored. The invite code is checked and not kept with your account.</td><td>You delete the account.</td></tr>
+          <tr><td>Sessions</td><td>One entry per signed-in phone and per token you create: a hash of the secret, the label you gave it (a device name or an assistant's name), and when it was created and last used.</td><td>You sign out on that phone or revoke the token on the Account screen.</td></tr>
+          <tr><td>App data</td><td>Every row the app syncs, as the app stores it: Selfwise journal entries, schedule items, sleep records and activity records; Sagax workouts, sets, runs, plans, programs, exercises, presets and settings; Sapor meals, foods, weight entries and the records about each photo. Each row carries the time it changed.</td><td>You delete the row in the app or delete the account. A deleted row's content is removed at once; a marker that it was deleted remains so your other phones delete it too.</td></tr>
+          <tr><td>Meal photos</td><td>Sapor's photos as JPEG files of at most 2 MB, so your other phones and your assistant can see them.</td><td>You delete the photo in the app, your assistant labels it (the nutrition data replaces the picture, which is then deleted), or you delete the account.</td></tr>
+        </tbody>
+      </table>
+      <p class="muted">That is all. The server does not record your email address, name, phone number, location, contacts, device identifiers or usage statistics.</p>
+    </section>
+
+    <section id="where">
+      <h2>Where it is</h2>
+      <p class="muted">The server runs on <a href="https://www.cloudflare.com/">Cloudflare</a>, in Cristian's Cloudflare account: the application as a Cloudflare Worker at <span class="mono">api.selfwiselabs.com</span>, the database on Cloudflare D1, the photos in a Cloudflare R2 bucket. Cloudflare is a US company with data centres worldwide and processes the data on Cristian's behalf under <a href="https://www.cloudflare.com/privacypolicy/">its privacy policy</a>. All traffic between the apps and the server is encrypted (HTTPS).</p>
+      <ul class="muted">
+        <li><strong>Request logs.</strong> Cloudflare keeps logs of the requests to the server for a few days: the requesting IP address, the path, the time and the result. They do not contain your data. Cristian reads them only to look into errors and attacks.</li>
+        <li><strong>Backups.</strong> Cloudflare keeps a point-in-time history of the database for 30 days. A deleted row or account can therefore still exist in that history for up to 30 days before it is gone everywhere.</li>
+      </ul>
+    </section>
+
+    <section id="assistants">
+      <h2>If you connect Claude or ChatGPT</h2>
+      <p class="muted">Nothing reaches an assistant unless you create a token on the Account screen and give it to one. Then:</p>
+      <ul class="muted">
+        <li><strong>The assistant reads and writes your data</strong> through the connector at <span class="mono">mcp.selfwiselabs.com</span>, which is also a Cloudflare Worker in Cristian's account. Whatever your questions make it read (your training, your journal, your meals, a meal photo) is sent to the assistant's provider: Anthropic for Claude, OpenAI for ChatGPT. From there their own privacy terms apply, including whether they keep conversations or train on them.</li>
+        <li><strong>The connector keeps a copy of your rows</strong> in Cloudflare's key-value store so it can answer quickly: one copy per token, refreshed when your data changes, expiring 30 days after the last refresh. Notes the assistant leaves about the connector itself are kept for 7 days under your username.</li>
+        <li><strong>A token is a key to your account.</strong> It is a secret, the ChatGPT form even puts it in the URL: anyone who has it can read your data. Revoking the token on the Account screen ends that access immediately; the copy in the key-value store expires on its own.</li>
+      </ul>
+    </section>
+
+    <section id="who-reads">
+      <h2>Who can read it</h2>
+      <ul class="muted">
+        <li><strong>You</strong>, from every phone where you are signed in and through every token you created.</li>
+        <li><strong>Your assistant</strong>, only if you connected one, as described above.</li>
+        <li><strong>Cristian</strong>, as the operator: he has full access to the database and the photo bucket and uses it only to run the service: to fix a problem you report, to check the server for abuse, or to carry out a deletion you ask for. He does not browse other people's data.</li>
+      </ul>
+      <p class="muted">Nobody else. The data is not sold, not shared with anyone, not used for advertising, and there are no analytics. It is handed over only if the law requires it.</p>
+    </section>
+
+    <section id="delete">
+      <h2>Deleting your data</h2>
+      <ul class="muted">
+        <li><strong>A record.</strong> Delete it in the app; the server removes its content at the next sync and your other phones follow.</li>
+        <li><strong>A photo.</strong> Delete it in Sapor; the file is deleted from the server at once.</li>
+        <li><strong>A phone or an assistant.</strong> Sign out on the phone, or revoke the token on the Account screen. The app's data stays on the phone until you delete the app.</li>
+        <li><strong>The whole account.</strong> A Delete account button on the Account screen is being added to the three apps. Until it ships, ask Cristian (see <a href="#who">Who runs this</a>); he deletes the account, every row, every photo and every session within 7 days and confirms. Nothing of yours is kept afterwards except the 30-day database history Cloudflare holds.</li>
+      </ul>
+      <p class="muted">You can also ask for a copy of everything the server holds about you; you get it as the same JSON rows the apps sync.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p class="muted">This page lives in a public repository; every change to it is visible in <a href="https://github.com/selfwise-labs/releases/commits/main/privacy.html">its history</a>, with the date at the top updated. A change that lets the server store more than listed here, or lets anyone else read it, is announced in the apps before it takes effect. The apps are not meant for children under 16.</p>
+    </section>
+
+  </div>
+
+  <footer class="footer muted">
+    <span style="display:flex;align-items:center;gap:10px">
+      <span class="marks" aria-hidden="true">
+        <img src="assets/selfwise.svg" alt="">
+        <img src="assets/sagax.svg" alt="">
+        <img src="assets/sapor.svg" alt="">
+      </span>
+      Selfwise Labs &middot; made by Cristian Toader
+    </span>
+    <span class="links">
+      <a href="./">Home</a>
+      <a href="https://github.com/selfwise-labs/releases/releases">All releases</a>
+      <a href="https://github.com/selfwise-labs/releases">Source of this page</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
