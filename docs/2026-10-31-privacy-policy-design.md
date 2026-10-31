@@ -47,3 +47,4 @@ Cloudflare's privacy policy, the issues page, the file's history).
 | A link to the policy inside the apps | The stores take the URL from the listing. Trigger: the Account screen gaining the Delete account button (board item 1), which is the natural place. |
 | An email address | Kept off the page on purpose (landing page design). Trigger: a store rejecting the issues page as the contact. |
 | Per-country data location | D1 and R2 do not expose a fixed region to promise. Trigger: a user asking. |
+| Implementation detail: hostnames, the hash algorithm, size limits, Cloudflare product names, exact retention periods | Trimmed 2026-10-31 at Cristian's request after the first version shipped with them: the reader needs the fact (a hash, not the password; backups about a month; logs a few days), not the mechanism. The sources above still hold the detail. |
