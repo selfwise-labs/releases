@@ -2,6 +2,10 @@
 
 2026-10-28 · Status: decided (mockup approved: a Claude Design canvas, private)
 
+2026-10-31: the connector section no longer uses tokens. Claude and ChatGPT sign in through the
+MCP server's OAuth page (selfwise-mcp PR #26, `docs/2026-10-30-oauth-design.md` there); the
+`/mcp/<token>` URL form below now answers the OAuth challenge instead. Codex still uses a token.
+
 ## Goal
 
 One public page that Cristian shares with people he knows: what the three apps are, where to
