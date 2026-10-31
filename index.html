@@ -292,7 +292,7 @@ details .mono{margin-top:10px}
     <div class="section-head">
       <span class="eyebrow">Claude &amp; ChatGPT</span>
       <h2>Talk to your data</h2>
-      <p class="muted">One connector gives your assistant the data of all three apps: ask about your training, your week or what you ate, have it write a training program, or label a meal photo. Two steps in the app, then one in the assistant you use.</p>
+      <p class="muted">One connector gives your assistant the data of all three apps: ask about your training, your week or what you ate, have it write a training program, or label a meal photo. Create an account in the app, add the connector in the assistant you use, and sign in when it asks.</p>
     </div>
 
     <div class="cream steps">
@@ -300,41 +300,43 @@ details .mono{margin-top:10px}
         <span class="num">1</span>
         <p class="muted"><strong style="color:#1f1a16">Create an account</strong> in any of the apps: Account, Create account, with your invite code. The same account works in all three.</p>
       </div>
-      <div class="step">
-        <span class="num">2</span>
-        <p class="muted"><strong style="color:#1f1a16">Create a token</strong> on the Account screen, name it after the assistant and copy it. You can revoke it there any time.</p>
-      </div>
     </div>
 
     <div class="grid2">
       <div class="card assistant">
         <div class="step" style="align-items:center">
-          <span class="num">3</span>
+          <span class="num">2</span>
           <h3>In Claude</h3>
         </div>
-        <p class="muted">On claude.ai: Settings, Connectors, Add custom connector. Paste the URL, choose No sign-in, and add one request header. Connectors added on the web also work in the Claude phone app.</p>
+        <p class="muted">On claude.ai: Settings, Connectors, Add custom connector. Paste the URL, keep what the dialog detected (Sign in now) and press Add; the sign-in page opens. Connectors added on the web also work in the Claude phone app.</p>
         <div class="mono">https://mcp.selfwiselabs.com/mcp</div>
-        <div class="mono">Authorization: Bearer &lt;your token&gt;</div>
         <details class="muted">
           <summary>Claude Code (terminal) &rarr;</summary>
-          <div class="mono">claude mcp add --transport http --scope user selfwise https://mcp.selfwiselabs.com/mcp --header "Authorization: Bearer &lt;your token&gt;"</div>
+          <div class="mono">claude mcp add --transport http --scope user selfwise https://mcp.selfwiselabs.com/mcp</div>
+          <p>Then type /mcp in a session and sign in.</p>
         </details>
       </div>
       <div class="card assistant">
         <div class="step" style="align-items:center">
-          <span class="num">3</span>
+          <span class="num">2</span>
           <h3>In ChatGPT</h3>
         </div>
-        <p class="muted">ChatGPT cannot send a header, so the token goes in the URL. On chatgpt.com/plugins (paid plans): the plus button, Add custom MCP server, paste the URL, choose No authentication, then Create as a plugin and Install it.</p>
-        <div class="mono">https://mcp.selfwiselabs.com/mcp/&lt;your token&gt;</div>
-        <p class="small muted">Anyone with that URL can read your data: keep it to yourself, and revoke the token from the Account screen if it leaks.</p>
+        <p class="muted">On chatgpt.com/plugins (paid plans): the plus button, Add custom MCP server, paste the URL, choose OAuth as the authentication, then Create as a plugin and Install it; the sign-in page opens.</p>
+        <div class="mono">https://mcp.selfwiselabs.com/mcp</div>
         <details class="muted">
           <summary>Codex (terminal) &rarr;</summary>
-          <p>Codex can send the header. Put the token in the environment variable SELFWISE_TOKEN and add to ~/.codex/config.toml:</p>
+          <p>Codex has no sign-in page; it uses a token instead. Create one on the Account screen, put it in the environment variable SELFWISE_TOKEN and add to ~/.codex/config.toml:</p>
           <div class="mono pre">[mcp_servers.selfwise]
 url = "https://mcp.selfwiselabs.com/mcp"
 bearer_token_env_var = "SELFWISE_TOKEN"</div>
         </details>
+      </div>
+    </div>
+
+    <div class="cream steps">
+      <div class="step">
+        <span class="num">3</span>
+        <p class="muted"><strong style="color:#1f1a16">Sign in when the assistant asks</strong>, on the Selfwise Labs page it opens, with that account's username and password. Each assistant then shows on the Account screen as a session named after it; delete the session there to disconnect it.</p>
       </div>
     </div>
 
@@ -346,7 +348,7 @@ bearer_token_env_var = "SELFWISE_TOKEN"</div>
         <p class="q">Label the lunch photo I just took.</p>
         <p class="q">What did I journal about sleep last month, and how did I actually sleep?</p>
       </div>
-      <p class="small">The assistant reads only the account the token belongs to. Plans and programs it writes show up on the phone at the next sync.</p>
+      <p class="small">The assistant reads only the account you signed in with. Plans and programs it writes show up on the phone at the next sync.</p>
     </div>
   </section>
 
