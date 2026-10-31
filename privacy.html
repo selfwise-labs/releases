@@ -44,7 +44,6 @@ table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5}
 th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid #ebe3d8}
 th{font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6b625a}
 td:first-child{font-weight:700;white-space:nowrap}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;background:#fff6ec;border:1px solid #f0e4d2;border-radius:6px;padding:1px 6px;overflow-wrap:anywhere}
 .footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;border-top:1px solid #ebe3d8;font-size:14px}
 .footer .marks img{width:16px;height:16px}
 .footer .links{display:flex;gap:20px;flex-wrap:wrap}
@@ -111,9 +110,9 @@ td:first-child{font-weight:700;white-space:nowrap}
       <p class="muted">Each app stores everything you enter in a database on the phone: Selfwise your journal, schedule, sleep and activity records; Sagax your workouts, sets, runs and plans; Sapor your meals, foods, weight entries and the photos you take of them. This data is yours, it is in the app's private storage, and the apps have no analytics, crash reporting or advertising code. Deleting the app deletes it.</p>
       <ul class="muted">
         <li><strong>Health Connect (Sagax, Android).</strong> With your permission Sagax reads exercise sessions from Health Connect: distance, heart rate, elevation, calories, power and cadence of runs and rides, including past ones. It stores them as runs on the phone. They reach the server only if you have an account, as part of the sync described below. Sagax writes nothing to Health Connect.</li>
-        <li><strong>Camera and photos (Sapor).</strong> Sapor takes or picks meal photos with your permission and resizes them to 1280 pixels on the phone.</li>
+        <li><strong>Camera and photos (Sapor).</strong> Sapor takes or picks meal photos with your permission and keeps a reduced copy on the phone.</li>
         <li><strong>Notifications (Selfwise, Sagax).</strong> Reminders and rest timers are scheduled on the phone. No push notification service is involved.</li>
-        <li><strong>Update checks.</strong> At start each app asks Expo's update server (<span class="mono">u.expo.dev</span>) whether a newer version of the app's code exists, and reads a small file in this repository (<span class="mono">raw.githubusercontent.com</span>) to learn whether a newer install is available. Those servers see your phone's IP address, the app and its version; neither receives anything you entered. On iPhone, TestFlight also sends Apple crash reports and your TestFlight feedback, which Apple shows to Cristian under <a href="https://www.apple.com/legal/internet-services/itunes/testflight/">Apple's TestFlight terms</a>.</li>
+        <li><strong>Update checks.</strong> At start each app asks Expo's update server whether a newer version of the app's code exists, and reads a small file in this repository on GitHub to learn whether a newer install is available. Those servers see your phone's IP address, the app and its version; neither receives anything you entered. On iPhone, TestFlight also sends Apple crash reports and your TestFlight feedback, which Apple shows to Cristian under <a href="https://www.apple.com/legal/internet-services/itunes/testflight/">Apple's TestFlight terms</a>.</li>
       </ul>
     </section>
 
@@ -123,10 +122,10 @@ td:first-child{font-weight:700;white-space:nowrap}
       <table>
         <thead><tr><th>Data</th><th>What exactly</th><th>Kept until</th></tr></thead>
         <tbody>
-          <tr><td>Account</td><td>The username you chose and a hash of your password (PBKDF2-SHA256, 100 000 iterations). The password itself is never stored. The invite code is checked and not kept with your account.</td><td>You delete the account.</td></tr>
+          <tr><td>Account</td><td>The username you chose and a hash of your password; the password itself is never stored. The invite code is checked and not kept with your account.</td><td>You delete the account.</td></tr>
           <tr><td>Sessions</td><td>One entry per signed-in phone and per token you create: a hash of the secret, the label you gave it (a device name or an assistant's name), and when it was created and last used.</td><td>You sign out on that phone or revoke the token on the Account screen.</td></tr>
           <tr><td>App data</td><td>Every row the app syncs, as the app stores it: Selfwise journal entries, schedule items, sleep records and activity records; Sagax workouts, sets, runs, plans, programs, exercises, presets and settings; Sapor meals, foods, weight entries and the records about each photo. Each row carries the time it changed.</td><td>You delete the row in the app or delete the account. A deleted row's content is removed at once; a marker that it was deleted remains so your other phones delete it too.</td></tr>
-          <tr><td>Meal photos</td><td>Sapor's photos as JPEG files of at most 2 MB, so your other phones and your assistant can see them.</td><td>You delete the photo in the app, your assistant labels it (the nutrition data replaces the picture, which is then deleted), or you delete the account.</td></tr>
+          <tr><td>Meal photos</td><td>Sapor's meal photos, so your other phones and your assistant can see them.</td><td>You delete the photo in the app, your assistant labels it (the nutrition data replaces the picture, which is then deleted), or you delete the account.</td></tr>
         </tbody>
       </table>
       <p class="muted">That is all. The server does not record your email address, name, phone number, location, contacts, device identifiers or usage statistics.</p>
@@ -134,10 +133,10 @@ td:first-child{font-weight:700;white-space:nowrap}
 
     <section id="where">
       <h2>Where it is</h2>
-      <p class="muted">The server runs on <a href="https://www.cloudflare.com/">Cloudflare</a>, in Cristian's Cloudflare account: the application as a Cloudflare Worker at <span class="mono">api.selfwiselabs.com</span>, the database on Cloudflare D1, the photos in a Cloudflare R2 bucket. Cloudflare is a US company with data centres worldwide and processes the data on Cristian's behalf under <a href="https://www.cloudflare.com/privacypolicy/">its privacy policy</a>. All traffic between the apps and the server is encrypted (HTTPS).</p>
+      <p class="muted">The server, its database and the photos are hosted by <a href="https://www.cloudflare.com/">Cloudflare</a>, a US company with data centres worldwide, which processes the data on Cristian's behalf under <a href="https://www.cloudflare.com/privacypolicy/">its privacy policy</a>. All traffic between the apps and the server is encrypted (HTTPS).</p>
       <ul class="muted">
-        <li><strong>Request logs.</strong> Cloudflare keeps logs of the requests to the server for a few days: the requesting IP address, the path, the time and the result. They do not contain your data. Cristian reads them only to look into errors and attacks.</li>
-        <li><strong>Backups.</strong> Cloudflare keeps a point-in-time history of the database for 30 days. A deleted row or account can therefore still exist in that history for up to 30 days before it is gone everywhere.</li>
+        <li><strong>Request logs.</strong> The host keeps logs of the requests to the server for a few days: the requesting address, the time and the result, not your data. Cristian reads them only to look into errors and attacks.</li>
+        <li><strong>Backups.</strong> The host keeps backups of the database for about a month, so a deleted record or account can still exist in a backup for that long before it is gone everywhere.</li>
       </ul>
     </section>
 
@@ -145,9 +144,9 @@ td:first-child{font-weight:700;white-space:nowrap}
       <h2>If you connect Claude or ChatGPT</h2>
       <p class="muted">Nothing reaches an assistant unless you create a token on the Account screen and give it to one. Then:</p>
       <ul class="muted">
-        <li><strong>The assistant reads and writes your data</strong> through the connector at <span class="mono">mcp.selfwiselabs.com</span>, which is also a Cloudflare Worker in Cristian's account. Whatever your questions make it read (your training, your journal, your meals, a meal photo) is sent to the assistant's provider: Anthropic for Claude, OpenAI for ChatGPT. From there their own privacy terms apply, including whether they keep conversations or train on them.</li>
-        <li><strong>The connector keeps a copy of your rows</strong> in Cloudflare's key-value store so it can answer quickly: one copy per token, refreshed when your data changes, expiring 30 days after the last refresh. Notes the assistant leaves about the connector itself are kept for 7 days under your username.</li>
-        <li><strong>A token is a key to your account.</strong> It is a secret, the ChatGPT form even puts it in the URL: anyone who has it can read your data. Revoking the token on the Account screen ends that access immediately; the copy in the key-value store expires on its own.</li>
+        <li><strong>The assistant reads and writes your data</strong> through the connector, which runs on the same host. Whatever your questions make it read (your training, your journal, your meals, a meal photo) is sent to the assistant's provider: Anthropic for Claude, OpenAI for ChatGPT. From there their own privacy terms apply, including whether they keep conversations or train on them.</li>
+        <li><strong>The connector keeps a copy of your data</strong> so it can answer quickly: one per token, refreshed when your data changes, expiring on its own about a month after the last refresh. Notes the assistant leaves about the connector itself are kept for a week.</li>
+        <li><strong>A token is a key to your account.</strong> It is a secret, the ChatGPT form even puts it in the URL: anyone who has it can read your data. Revoking the token on the Account screen ends that access immediately; the connector's copy expires on its own.</li>
       </ul>
     </section>
 
@@ -167,7 +166,7 @@ td:first-child{font-weight:700;white-space:nowrap}
         <li><strong>A record.</strong> Delete it in the app; the server removes its content at the next sync and your other phones follow.</li>
         <li><strong>A photo.</strong> Delete it in Sapor; the file is deleted from the server at once.</li>
         <li><strong>A phone or an assistant.</strong> Sign out on the phone, or revoke the token on the Account screen. The app's data stays on the phone until you delete the app.</li>
-        <li><strong>The whole account.</strong> A Delete account button on the Account screen is being added to the three apps. Until it ships, ask Cristian (see <a href="#who">Who runs this</a>); he deletes the account, every row, every photo and every session within 7 days and confirms. Nothing of yours is kept afterwards except the 30-day database history Cloudflare holds.</li>
+        <li><strong>The whole account.</strong> A Delete account button on the Account screen is being added to the three apps. Until it ships, ask Cristian (see <a href="#who">Who runs this</a>); he deletes the account, every row, every photo and every session within 7 days and confirms. Nothing of yours is kept afterwards except the host's backups, which expire within about a month.</li>
       </ul>
       <p class="muted">You can also ask for a copy of everything the server holds about you; you get it as the same JSON rows the apps sync.</p>
     </section>
