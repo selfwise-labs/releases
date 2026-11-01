@@ -6,9 +6,9 @@
     "url": "https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk"
   },
   "ios": {
-    "build": 2,
-    "release": "v43",
-    "fingerprint": "056c6fa0f1e6df9e131f0fe02616d1af40ec4107",
+    "build": 3,
+    "release": "v44",
+    "fingerprint": "405891389ba25459bb835f3adccd8cd9801460d5",
     "url": "https://testflight.apple.com/join/EQMKsmwa"
   }
 }
