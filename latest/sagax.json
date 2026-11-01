@@ -1,4 +1,14 @@
 {
-  "android": { "build": 6, "release": "v38", "fingerprint": null, "url": "https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk" },
-  "ios": { "build": 1, "release": "v38", "fingerprint": null, "url": "https://testflight.apple.com/join/EQMKsmwa" }
+  "android": {
+    "build": 8,
+    "release": "v43",
+    "fingerprint": "d721b036c515b4748637f937c5fb6b5ed2d2e68d",
+    "url": "https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk"
+  },
+  "ios": {
+    "build": 1,
+    "release": "v38",
+    "fingerprint": null,
+    "url": "https://testflight.apple.com/join/EQMKsmwa"
+  }
 }
