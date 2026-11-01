@@ -87,7 +87,7 @@ td:first-child{font-weight:700;white-space:nowrap}
   </header>
 
   <div class="title">
-    <span class="eyebrow">Privacy policy &middot; Selfwise, Sagax and Sapor &middot; 31 October 2026</span>
+    <span class="eyebrow">Privacy policy &middot; Selfwise, Sagax and Sapor &middot; 1 November 2026</span>
     <h1>What the apps store, where, and who can read it</h1>
     <p class="muted">This policy covers the three apps, the account service behind them and the connector for Claude and ChatGPT. It is written by the one person who runs them, Cristian Toader, and it says what actually happens.</p>
   </div>
@@ -95,14 +95,14 @@ td:first-child{font-weight:700;white-space:nowrap}
   <div class="summary">
     <p><strong>Without an account, nothing you enter leaves your phone.</strong> The apps keep their data in a database on the device. The only connections they make are a check for updates at start.</p>
     <p><strong>With an account, your data is copied to a server so your phones stay in sync</strong> and, if you choose, so Claude or ChatGPT can read it. The server stores a username, a password hash, your app data and Sapor's meal photos. No email address, no name, no location, no advertising identifiers, no analytics.</p>
-    <p><strong>Nothing is sold, shared or used for advertising.</strong> Only you, your assistant if you connect one, and Cristian as the operator can read your data. You can delete any of it.</p>
+    <p><strong>Nothing is sold, shared or used for advertising.</strong> Only you, your assistant if you connect one, and Cristian as the operator can read your data. You can delete any of it, or the whole account, and take a copy, from the Account screen.</p>
   </div>
 
   <div class="policy">
 
     <section id="who">
       <h2>Who runs this</h2>
-      <p class="muted">Cristian Toader, publishing as Selfwise Labs, makes and operates the apps, the server and this page. There is no company behind them. The apps are in beta and used by people Cristian knows; accounts are created with an invite code he hands out. For any question or request about your data, write to him the way you got your invite code, or open an issue at <a href="https://github.com/selfwise-labs/releases/issues">github.com/selfwise-labs/releases/issues</a>.</p>
+      <p class="muted">Cristian Toader, publishing as Selfwise Labs, makes and operates the apps, the server and this page. There is no company behind them: in the terms of the GDPR, Cristian is the controller of the data described here, and there is no representative and no data protection officer, since none is required at this size. The apps are in beta and used by people Cristian knows; accounts are created with an invite code he hands out. For any question or request about your data, write to him the way you got your invite code, or open an issue at <a href="https://github.com/selfwise-labs/releases/issues">github.com/selfwise-labs/releases/issues</a>.</p>
     </section>
 
     <section id="phone">
@@ -118,11 +118,14 @@ td:first-child{font-weight:700;white-space:nowrap}
 
     <section id="account">
       <h2>With an account</h2>
-      <p class="muted">Creating an account asks for a username, a password and the invite code. From then on each signed-in phone pushes every change to the server and pulls the changes of your other phones. The server stores:</p>
+      <p class="muted">Creating an account asks for a username, a password and the invite code. From then on each signed-in phone pushes every change to the server and pulls the changes of your other phones.</p>
+      <h3>Why, and on what basis</h3>
+      <p class="muted">The account exists to keep your phones in sync and, if you choose, to let an assistant read your data: that is the service you asked for when you created it (GDPR article 6(1)(b)). The data it holds includes health data in the GDPR's sense: sleep, workouts, weight and meals. It is stored only with the explicit consent you give by ticking the box when you create the account (article 9(2)(a)), and you withdraw that consent by deleting the account.</p>
+      <p class="muted">The server stores:</p>
       <table>
         <thead><tr><th>Data</th><th>What exactly</th><th>Kept until</th></tr></thead>
         <tbody>
-          <tr><td>Account</td><td>The username you chose and a hash of your password; the password itself is never stored. The invite code is checked and not kept with your account.</td><td>You delete the account.</td></tr>
+          <tr><td>Account</td><td>The username you chose and a hash of your password; the password itself is never stored; and when you gave consent. The invite code is checked and not kept with your account.</td><td>You delete the account.</td></tr>
           <tr><td>Sessions</td><td>One entry per signed-in phone and per token you create: a hash of the secret, the label you gave it (a device name or an assistant's name), and when it was created and last used.</td><td>You sign out on that phone or revoke the token on the Account screen.</td></tr>
           <tr><td>App data</td><td>Every row the app syncs, as the app stores it: Selfwise journal entries, schedule items, sleep records and activity records; Sagax workouts, sets, runs, plans, programs, exercises, presets and settings; Sapor meals, foods, weight entries and the records about each photo. Each row carries the time it changed.</td><td>You delete the row in the app or delete the account. A deleted row's content is removed at once; a marker that it was deleted remains so your other phones delete it too.</td></tr>
           <tr><td>Meal photos</td><td>Sapor's meal photos, so your other phones and your assistant can see them.</td><td>You delete the photo in the app, your assistant labels it (the nutrition data replaces the picture, which is then deleted), or you delete the account.</td></tr>
@@ -133,7 +136,7 @@ td:first-child{font-weight:700;white-space:nowrap}
 
     <section id="where">
       <h2>Where it is</h2>
-      <p class="muted">The server, its database and the photos are hosted by <a href="https://www.cloudflare.com/">Cloudflare</a>, a US company with data centres worldwide, which processes the data on Cristian's behalf under <a href="https://www.cloudflare.com/privacypolicy/">its privacy policy</a>. All traffic between the apps and the server is encrypted (HTTPS).</p>
+      <p class="muted">The server, its database and the photos are hosted by <a href="https://www.cloudflare.com/">Cloudflare</a>, a US company with data centres worldwide, which processes the data on Cristian's behalf under <a href="https://www.cloudflare.com/cloudflare-customer-dpa/">its Data Processing Addendum</a>; it includes the EU standard contractual clauses that cover transfers outside the EU. All traffic between the apps and the server is encrypted (HTTPS).</p>
       <ul class="muted">
         <li><strong>Request logs.</strong> The host keeps logs of the requests to the server for a few days: the requesting address, the time and the result, not your data. Cristian reads them only to look into errors and attacks.</li>
         <li><strong>Backups.</strong> The host keeps backups of the database for about a month, so a deleted record or account can still exist in a backup for that long before it is gone everywhere.</li>
@@ -142,11 +145,12 @@ td:first-child{font-weight:700;white-space:nowrap}
 
     <section id="assistants">
       <h2>If you connect Claude or ChatGPT</h2>
-      <p class="muted">Nothing reaches an assistant unless you create a token on the Account screen and give it to one. Then:</p>
+      <p class="muted">Nothing reaches an assistant unless you add the connector in it and sign in with your username and password on the page it opens. Then:</p>
       <ul class="muted">
+        <li><strong>The connector holds a session for that assistant</strong>, shown on the Account screen under the assistant's name next to your phones. Deleting it there disconnects the assistant immediately.</li>
         <li><strong>The assistant reads and writes your data</strong> through the connector, which runs on the same host. Whatever your questions make it read (your training, your journal, your meals, a meal photo) is sent to the assistant's provider: Anthropic for Claude, OpenAI for ChatGPT. From there their own privacy terms apply, including whether they keep conversations or train on them.</li>
-        <li><strong>The connector keeps a copy of your data</strong> so it can answer quickly: one per token, refreshed when your data changes, expiring on its own about a month after the last refresh. Notes the assistant leaves about the connector itself are kept for a week.</li>
-        <li><strong>A token is a key to your account.</strong> It is a secret, the ChatGPT form even puts it in the URL: anyone who has it can read your data. Revoking the token on the Account screen ends that access immediately; the connector's copy expires on its own.</li>
+        <li><strong>The connector keeps a copy of your data</strong> so it can answer quickly: one per session, refreshed when your data changes, expiring on its own about a month after the last refresh. Notes the assistant leaves about the connector itself are kept for a week.</li>
+        <li><strong>Tools without a sign-in page</strong> (for example Codex) use a token instead, created on the Account screen and pasted into the tool. A token is a key to your account: anyone who has it can read your data. Revoking it on the Account screen ends that access immediately; the connector's copy expires on its own.</li>
       </ul>
     </section>
 
@@ -165,10 +169,24 @@ td:first-child{font-weight:700;white-space:nowrap}
       <ul class="muted">
         <li><strong>A record.</strong> Delete it in the app; the server removes its content at the next sync and your other phones follow.</li>
         <li><strong>A photo.</strong> Delete it in Sapor; the file is deleted from the server at once.</li>
-        <li><strong>A phone or an assistant.</strong> Sign out on the phone, or revoke the token on the Account screen. The app's data stays on the phone until you delete the app.</li>
-        <li><strong>The whole account.</strong> A Delete account button on the Account screen is being added to the three apps. Until it ships, ask Cristian (see <a href="#who">Who runs this</a>); he deletes the account, every row, every photo and every session within 7 days and confirms. Nothing of yours is kept afterwards except the host's backups, which expire within about a month.</li>
+        <li><strong>A phone or an assistant.</strong> Sign out on the phone, or delete the assistant's session or token on the Account screen. The app's data stays on the phone until you delete the app.</li>
+        <li><strong>The whole account.</strong> <em>Delete account</em> on the Account screen of any of the apps, after typing your username to confirm. It deletes the account on the server at once: every synced record, every meal photo, every signed-in phone and every assistant session. Nothing on your phones is deleted; each keeps its data until you delete the app. Nothing of yours is kept on the server afterwards except the host's backups, which expire within about a month. If you no longer have a phone with the app, ask Cristian (see <a href="#who">Who runs this</a>) and he deletes it within a month and confirms.</li>
+        <li><strong>A copy of your data.</strong> <em>Export my data</em> on the Account screen gives you a JSON file of every record the server holds for that app, the same rows the apps sync, readable by any program. It works without an account too, for what is on the phone.</li>
       </ul>
-      <p class="muted">You can also ask for a copy of everything the server holds about you; you get it as the same JSON rows the apps sync.</p>
+    </section>
+
+    <section id="rights">
+      <h2>Your rights</h2>
+      <p class="muted">Under the GDPR you have these rights over your data, and here is how each one works:</p>
+      <ul class="muted">
+        <li><strong>Access and a copy (portability):</strong> <em>Export my data</em> on the Account screen, for each app.</li>
+        <li><strong>Rectification:</strong> edit the record in the app; the change syncs.</li>
+        <li><strong>Erasure:</strong> delete the record in the app, or the whole account with <em>Delete account</em>.</li>
+        <li><strong>Withdrawing consent</strong> to the storage of your health data: delete the account. It does not affect what happened before.</li>
+        <li><strong>Restriction and objection:</strong> write to Cristian (see <a href="#who">Who runs this</a>). Since the server does nothing with your data beyond storing it for you, a restriction in practice means signing out or deleting the account.</li>
+        <li><strong>Complaint:</strong> you can complain to a supervisory authority. Cristian is in Romania, so the authority for him is the ANSPDCP, <a href="https://www.dataprotection.ro">dataprotection.ro</a>; you can also use the one of your own country.</li>
+      </ul>
+      <p class="muted">Any request about your data is answered within a month.</p>
     </section>
 
     <section id="changes">
