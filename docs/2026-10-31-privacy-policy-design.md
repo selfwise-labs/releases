@@ -2,6 +2,13 @@
 
 2026-10-31 · Status: decided (board item "Privacy policy page", Selfwise Labs project)
 
+2026-11-01: the page gained what the first two "Deliberately left out" rows below had held back,
+because the apps now delete and export accounts (GDPR rights design in `selfwise-backend`,
+`docs/2026-10-31-gdpr-rights-design.md`): the controller sentence, the legal basis (contract for
+the account, explicit consent for the health data), Cloudflare's DPA, a "Your rights" section with
+the ANSPDCP as the authority, and the connector section rewritten for OAuth sign-in. The apps link
+the page from their Account screens since 2026-10-29.
+
 ## Goal
 
 App Store Connect and Google Play both require a privacy policy URL. One static page next to the

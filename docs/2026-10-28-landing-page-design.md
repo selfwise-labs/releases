@@ -2,6 +2,9 @@
 
 2026-10-28 · Status: decided (mockup approved: a Claude Design canvas, private)
 
+2026-11-01: the hero paragraph says the data can be exported or the account deleted from the app
+(GDPR rights design in `selfwise-backend`, `docs/2026-10-31-gdpr-rights-design.md`).
+
 2026-10-31: the connector section no longer uses tokens. Claude and ChatGPT sign in through the
 MCP server's OAuth page (selfwise-mcp PR #26, `docs/2026-10-30-oauth-design.md` there); the
 `/mcp/<token>` URL form below now answers the OAuth challenge instead. Codex still uses a token.
