@@ -1,4 +1,14 @@
 {
-  "android": { "build": 6, "release": "v9", "fingerprint": null, "url": "https://github.com/selfwise-labs/releases/releases/download/sapor-latest/sapor.apk" },
-  "ios": { "build": 1, "release": "v9", "fingerprint": null, "url": "https://testflight.apple.com/join/mnCAbn61" }
+  "android": {
+    "build": 8,
+    "release": "v14",
+    "fingerprint": "0816711fed1fd57a693ec3a177bcd891173f8c34",
+    "url": "https://github.com/selfwise-labs/releases/releases/download/sapor-latest/sapor.apk"
+  },
+  "ios": {
+    "build": 1,
+    "release": "v9",
+    "fingerprint": null,
+    "url": "https://testflight.apple.com/join/mnCAbn61"
+  }
 }
