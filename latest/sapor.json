@@ -6,9 +6,9 @@
     "url": "https://github.com/selfwise-labs/releases/releases/download/sapor-latest/sapor.apk"
   },
   "ios": {
-    "build": 1,
-    "release": "v9",
-    "fingerprint": null,
+    "build": 2,
+    "release": "v14",
+    "fingerprint": "7acc7dd83ca7313df915fecd25fe3176ca27edeb",
     "url": "https://testflight.apple.com/join/mnCAbn61"
   }
 }
