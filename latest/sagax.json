@@ -1,8 +1,8 @@
 {
   "android": {
-    "build": 8,
-    "release": "v43",
-    "fingerprint": "d721b036c515b4748637f937c5fb6b5ed2d2e68d",
+    "build": 9,
+    "release": "v44",
+    "fingerprint": "49eb4754d1949eda390e0b9f41f70fd29e0cb602",
     "url": "https://github.com/selfwise-labs/releases/releases/download/sagax-latest/sagax.apk"
   },
   "ios": {
