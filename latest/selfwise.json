@@ -6,9 +6,9 @@
     "url": "https://github.com/selfwise-labs/releases/releases/download/selfwise-latest/selfwise.apk"
   },
   "ios": {
-    "build": 1,
-    "release": "v31",
-    "fingerprint": null,
+    "build": 2,
+    "release": "v36",
+    "fingerprint": "437a40c9dd49f06d9072e43ee6f65b414603c5b1",
     "url": "https://testflight.apple.com/join/hzXY9tcd"
   }
 }
