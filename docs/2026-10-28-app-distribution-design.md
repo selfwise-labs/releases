@@ -61,8 +61,9 @@ runs only when a build happened and `RELEASES_TOKEN` is set:
   so a failure after that is fixed by hand on GitHub.
 
 `RELEASES_TOKEN` is a fine-grained personal access token: owner `selfwise-labs`, repository
-`releases` only, permission Contents: read and write. Stored as an organization secret shared
-with the three private repos, read by a gate step and passed only to the two publish steps
+`releases` only, permission Contents: read and write. Stored as a repository secret in each of the three
+private app repos (set 2026-10-31; the organization is on the Free plan, whose organization
+secrets cannot be used by private repositories), read by a gate step and passed only to the two publish steps
 (not the job environment, where `npm ci` and `npx` could read it). Without it the publish
 steps are skipped and the release is what it is today.
 
