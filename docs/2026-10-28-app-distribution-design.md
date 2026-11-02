@@ -73,22 +73,22 @@ One module per app (`src/features/updates/`, same code in the three apps, as the
 
 - `checkForUpdate(fetch, now)`: fetches
   `https://raw.githubusercontent.com/selfwise-labs/releases/main/latest/<app>.json`, reads the
-  section for `Platform.OS`, compares `build` with the installed native build number
-  (`expo-constants` `Constants.nativeBuildVersion`, parsed as an integer), and returns
-  `{ build, url }` when the file's is higher, else `null`. Any error, a missing section or a
-  non-numeric version returns `null`. Skipped in Expo Go and dev builds (`__DEV__`, or a null
-  native build version).
+  section for `Platform.OS`, compares `fingerprint` with the installed runtime version
+  (`expo-updates` `Updates.runtimeVersion`), and returns `{ build, url }` when they differ, else
+  `null`. Any error or a missing section returns `null`. Skipped in Expo Go and dev builds
+  (`__DEV__`, or a null runtime version).
 - Runs at app start and when the app returns to the foreground, at most once every 6 hours
   (the last check's time kept in memory; a cold start checks again).
 - `UpdateBanner`: a one-line banner on the main screen, "Version 7 available" with an Update
   button that opens the URL with `Linking.openURL`. Android: the browser downloads the APK and
   Android offers to install it. iOS: the TestFlight page of the app. Dismiss hides it until the
-  next check that still finds a newer build.
+  next check that still finds another build.
 - Nothing is forced: the app keeps working on the old build.
 
-`Constants.nativeBuildVersion` is deprecated in favour of `expo-application` but present in SDK
-57 and needs no new native module, so the checker ships over the air to the APKs installed
-today; the first native release after that is the first one the banner announces.
+`Updates.runtimeVersion` needs no new native module, so the checker ships over the air. The first
+version read `Constants.nativeBuildVersion`, which does not exist in SDK 57, so the banner never
+appeared until this was corrected on 2026-11-02. `expo-application` was not an option: Sapor's
+APKs do not contain it.
 
 ### iOS and Beta App Review
 
