@@ -1,8 +1,8 @@
 {
   "android": {
-    "build": 6,
-    "release": "v36",
-    "fingerprint": "f70bbfd90aa4cbad4f442151a090c0ffc9c79358",
+    "build": 7,
+    "release": "v40",
+    "fingerprint": "89d54667ba6bfeaf9c7ab493c90fd67a98a6bae4",
     "url": "https://github.com/selfwise-labs/releases/releases/download/selfwise-latest/selfwise.apk"
   },
   "ios": {
