@@ -87,7 +87,7 @@ td:first-child{font-weight:700;white-space:nowrap}
   </header>
 
   <div class="title">
-    <span class="eyebrow">Privacy policy &middot; Selfwise, Sagax and Sapor &middot; 1 November 2026</span>
+    <span class="eyebrow">Privacy policy &middot; Selfwise, Sagax and Sapor &middot; 14 November 2026</span>
     <h1>What the apps store, where, and who can read it</h1>
     <p class="muted">This policy covers the three apps, the account service behind them and the connector for Claude and ChatGPT. It is written by the one person who runs them, Cristian Toader, and it says what actually happens.</p>
   </div>
@@ -95,7 +95,7 @@ td:first-child{font-weight:700;white-space:nowrap}
   <div class="summary">
     <p><strong>Without an account, nothing you enter leaves your phone.</strong> The apps keep their data in a database on the device. The only connections they make are a check for updates at start.</p>
     <p><strong>With an account, your data is copied to a server so your phones stay in sync</strong> and, if you choose, so Claude or ChatGPT can read it. The server stores a username, a password hash, your app data and Sapor's meal photos. No email address, no name, no location, no advertising identifiers, no analytics.</p>
-    <p><strong>Nothing is sold, shared or used for advertising.</strong> Only you, your assistant if you connect one, and Cristian as the operator can read your data. You can delete any of it, or the whole account, and take a copy, from the Account screen.</p>
+    <p><strong>Nothing is sold or used for advertising, and nothing is shared unless you share it.</strong> In Selfwise you can share a journal entry or a schedule item with friends you pick; they see that and nothing else. Otherwise only you, your assistant if you connect one, and Cristian as the operator can read your data. You can delete any of it, or the whole account, and take a copy, from the Account screen.</p>
   </div>
 
   <div class="policy">
@@ -129,6 +129,7 @@ td:first-child{font-weight:700;white-space:nowrap}
           <tr><td>Sessions</td><td>One entry per signed-in phone and per token you create: a hash of the secret, the label you gave it (a device name or an assistant's name), and when it was created and last used.</td><td>You sign out on that phone or revoke the token on the Account screen.</td></tr>
           <tr><td>App data</td><td>Every row the app syncs, as the app stores it: Selfwise journal entries, schedule items, sleep records and activity records; Sagax workouts, sets, runs, plans, programs, exercises, presets and settings; Sapor meals, foods, weight entries and the records about each photo. Each row carries the time it changed.</td><td>You delete the row in the app or delete the account. A deleted row's content is removed at once; a marker that it was deleted remains so your other phones delete it too.</td></tr>
           <tr><td>Meal photos</td><td>Sapor's meal photos, so your other phones and your assistant can see them.</td><td>You delete the photo in the app, your assistant labels it (the nutrition data replaces the picture, which is then deleted), or you delete the account.</td></tr>
+          <tr><td>Friends and sharing (Selfwise)</td><td>The accounts you asked or approved as friends, and which journal entries or schedule items you shared with which of them, to view or to edit. An item a friend adds to your shared entry carries their username.</td><td>You remove the friend, stop sharing, or delete the account. The record that an entry is shared is removed after the entry's end time.</td></tr>
         </tbody>
       </table>
       <p class="muted">That is all. The server does not record your email address, name, phone number, location, contacts, device identifiers or usage statistics.</p>
@@ -159,9 +160,10 @@ td:first-child{font-weight:700;white-space:nowrap}
       <ul class="muted">
         <li><strong>You</strong>, from every phone where you are signed in and through every token you created.</li>
         <li><strong>Your assistant</strong>, only if you connected one, as described above.</li>
+        <li><strong>Friends you picked (Selfwise)</strong>, only for what you shared with them. A friend is another account that you asked by username and that approved, or that asked you and you approved; a request shows the asker's username to the account asked. When you share a journal entry, or a schedule item and so each of its coming entries, the friends you picked for it see that entry in their own Journal until its end time: its activity, title, description, times and checklist items, with your username. If you shared it to edit, they can also tick, add and delete its items. Their phone keeps a copy until the entry ends. They see nothing else of yours, and their assistant does not see what you shared.</li>
         <li><strong>Cristian</strong>, as the operator: he has full access to the database and the photo bucket and uses it only to run the service: to fix a problem you report, to check the server for abuse, or to carry out a deletion you ask for. He does not browse other people's data.</li>
       </ul>
-      <p class="muted">Nobody else. The data is not sold, not shared with anyone, not used for advertising, and there are no analytics. It is handed over only if the law requires it.</p>
+      <p class="muted">Nobody else. The data is not sold, not shared with anyone you did not pick, not used for advertising, and there are no analytics. It is handed over only if the law requires it.</p>
     </section>
 
     <section id="delete">
@@ -169,8 +171,9 @@ td:first-child{font-weight:700;white-space:nowrap}
       <ul class="muted">
         <li><strong>A record.</strong> Delete it in the app; the server removes its content at the next sync and your other phones follow.</li>
         <li><strong>A photo.</strong> Delete it in Sapor; the file is deleted from the server at once.</li>
+        <li><strong>Something you shared, or a friend.</strong> Switch sharing off on the entry or the schedule item, or remove the friend on the Account screen, which also ends everything the two of you shared with each other. The entry leaves the friend's Journal at their app's next sync.</li>
         <li><strong>A phone or an assistant.</strong> Sign out on the phone, or delete the assistant's session or token on the Account screen. The app's data stays on the phone until you delete the app.</li>
-        <li><strong>The whole account.</strong> <em>Delete account</em> on the Account screen of any of the apps, after typing your username to confirm. It deletes the account on the server at once: every synced record, every meal photo, every signed-in phone and every assistant session. Nothing on your phones is deleted; each keeps its data until you delete the app. Nothing of yours is kept on the server afterwards except the host's backups, which expire within about a month. If you no longer have a phone with the app, ask Cristian (see <a href="#who">Who runs this</a>) and he deletes it within a month and confirms.</li>
+        <li><strong>The whole account.</strong> <em>Delete account</em> on the Account screen of any of the apps, after typing your username to confirm. It deletes the account on the server at once: every synced record, every meal photo, every signed-in phone, every assistant session, and your friends and everything shared with or by you. Nothing on your phones is deleted; each keeps its data until you delete the app. Nothing of yours is kept on the server afterwards except the host's backups, which expire within about a month. If you no longer have a phone with the app, ask Cristian (see <a href="#who">Who runs this</a>) and he deletes it within a month and confirms.</li>
         <li><strong>A copy of your data.</strong> <em>Export my data</em> on the Account screen gives you a JSON file of every record the server holds for that app, the same rows the apps sync, readable by any program. It works without an account too, for what is on the phone.</li>
       </ul>
     </section>
