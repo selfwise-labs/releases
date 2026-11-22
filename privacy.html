@@ -87,14 +87,14 @@ td:first-child{font-weight:700;white-space:nowrap}
   </header>
 
   <div class="title">
-    <span class="eyebrow">Privacy policy &middot; Selfwise, Sagax and Sapor &middot; 14 November 2026</span>
+    <span class="eyebrow">Privacy policy &middot; Selfwise, Sagax and Sapor &middot; 22 November 2026</span>
     <h1>What the apps store, where, and who can read it</h1>
     <p class="muted">This policy covers the three apps, the account service behind them and the connector for Claude and ChatGPT. It is written by the one person who runs them, Cristian Toader, and it says what actually happens.</p>
   </div>
 
   <div class="summary">
     <p><strong>Without an account, nothing you enter leaves your phone.</strong> The apps keep their data in a database on the device. The only connections they make are a check for updates at start.</p>
-    <p><strong>With an account, your data is copied to a server so your phones stay in sync</strong> and, if you choose, so Claude or ChatGPT can read it. The server stores a username, a password hash, your app data and Sapor's meal photos. No email address, no name, no location, no advertising identifiers, no analytics.</p>
+    <p><strong>With an account, your data is copied to a server so your phones stay in sync</strong> and, if you choose, so Claude or ChatGPT can read it. The server stores a username, a password hash, your app data and Sapor's meal photos. No email address, no name, no location, no advertising identifiers. Usage statistics are off unless you switch them on, and are then kept as totals that do not say who you are.</p>
     <p><strong>Nothing is sold or used for advertising, and nothing is shared unless you share it.</strong> In Selfwise you can share a journal entry or a schedule item with friends you pick; they see that and nothing else. Otherwise only you, your assistant if you connect one, and Cristian as the operator can read your data. You can delete any of it, or the whole account, and take a copy, from the Account screen.</p>
   </div>
 
@@ -107,7 +107,7 @@ td:first-child{font-weight:700;white-space:nowrap}
 
     <section id="phone">
       <h2>On your phone</h2>
-      <p class="muted">Each app stores everything you enter in a database on the phone: Selfwise your journal, schedule, sleep and activity records; Sagax your workouts, sets, runs and plans; Sapor your meals, foods, weight entries and the photos you take of them. This data is yours, it is in the app's private storage, and the apps have no analytics, crash reporting or advertising code. Deleting the app deletes it.</p>
+      <p class="muted">Each app stores everything you enter in a database on the phone: Selfwise your journal, schedule, sleep and activity records; Sagax your workouts, sets, runs and plans; Sapor your meals, foods, weight entries and the photos you take of them. This data is yours, it is in the app's private storage, and the apps have no crash reporting or advertising code. They count nothing about how you use them unless you switch usage statistics on (see <a href="#usage">Usage statistics</a>). Deleting the app deletes it.</p>
       <ul class="muted">
         <li><strong>Health Connect (Sagax, Android).</strong> With your permission Sagax reads exercise sessions from Health Connect: distance, heart rate, elevation, calories, power and cadence of runs and rides, including past ones. It stores them as runs on the phone. They reach the server only if you have an account, as part of the sync described below. Sagax writes nothing to Health Connect.</li>
         <li><strong>Camera and photos (Sapor).</strong> Sapor takes or picks meal photos with your permission and keeps a reduced copy on the phone.</li>
@@ -125,14 +125,23 @@ td:first-child{font-weight:700;white-space:nowrap}
       <table>
         <thead><tr><th>Data</th><th>What exactly</th><th>Kept until</th></tr></thead>
         <tbody>
-          <tr><td>Account</td><td>The username you chose and a hash of your password; the password itself is never stored; and when you gave consent. The invite code is checked and not kept with your account.</td><td>You delete the account.</td></tr>
+          <tr><td>Account</td><td>The username you chose and a hash of your password; the password itself is never stored; when you gave consent; and, if you switched usage statistics on, when. The invite code is checked and not kept with your account.</td><td>You delete the account.</td></tr>
           <tr><td>Sessions</td><td>One entry per signed-in phone and per token you create: a hash of the secret, the label you gave it (a device name or an assistant's name), and when it was created and last used.</td><td>You sign out on that phone or revoke the token on the Account screen.</td></tr>
           <tr><td>App data</td><td>Every row the app syncs, as the app stores it: Selfwise journal entries, schedule items, sleep records and activity records; Sagax workouts, sets, runs, plans, programs, exercises, presets and settings; Sapor meals, foods, weight entries and the records about each photo. Each row carries the time it changed.</td><td>You delete the row in the app or delete the account. A deleted row's content is removed at once; a marker that it was deleted remains so your other phones delete it too.</td></tr>
           <tr><td>Meal photos</td><td>Sapor's meal photos, so your other phones and your assistant can see them.</td><td>You delete the photo in the app, your assistant labels it (the nutrition data replaces the picture, which is then deleted), or you delete the account.</td></tr>
           <tr><td>Friends and sharing (Selfwise)</td><td>The accounts you asked or approved as friends, and which journal entries or schedule items you shared with which of them, to view or to edit. An item a friend adds to your shared entry carries their username, and keeps it after that friend deletes their account.</td><td>You remove the friend, stop sharing, or delete the account. The record that an entry is shared is removed after the entry's end time.</td></tr>
         </tbody>
       </table>
-      <p class="muted">That is all. The server does not record your email address, name, phone number, location, contacts, device identifiers or usage statistics.</p>
+      <p class="muted">That is all, apart from the usage statistics below if you switch them on. The server does not record your email address, name, phone number, location, contacts or device identifiers.</p>
+    </section>
+
+    <section id="usage">
+      <h2>Usage statistics</h2>
+      <p class="muted"><strong>Off until you switch them on</strong>: with the second, optional box when you create an account, or with the <em>Usage statistics</em> switch on the Account screen. An account works the same without them, and without an account they do not exist.</p>
+      <p class="muted"><strong>What is counted.</strong> While they are on, the app counts on your phone how often each screen is opened, how often each of a short, fixed list of actions is used (for example "workout started from a preset"), and which steps of a walkthrough were shown. The names come from the app's code. Nothing you enter is counted or sent: no text, no number, no record.</p>
+      <p class="muted"><strong>What the server keeps.</strong> About once an hour the phone sends its counts, and the server adds them to weekly totals per app and per name: how many times, and on how many phones. The totals carry no username, no account and no number that stands for your phone, so nothing in them says which part was yours. They are deleted after three months. The only thing stored with your account is the date you switched them on.</p>
+      <p class="muted"><strong>Why, and on what basis.</strong> Cristian reads the totals to see which screens are used and where people stop, so the apps can be improved. The basis is your consent (GDPR article 6(1)(a), and for the counting on your phone article 4(5) of Romanian Law 506/2004). They are stored at Cloudflare, like everything else (see <a href="#where">Where it is</a>).</p>
+      <p class="muted"><strong>Switching them off.</strong> The same switch, also without a connection. The phone stops counting and deletes the counts it has not sent, and the date is removed from your account. Totals already sent cannot be told apart from anyone else's, so they stay until they expire.</p>
     </section>
 
     <section id="where">
@@ -163,7 +172,7 @@ td:first-child{font-weight:700;white-space:nowrap}
         <li><strong>Friends you picked (Selfwise)</strong>, only for what you shared with them. A friend is another account that you asked by username and that approved, or that asked you and you approved; a request shows the asker's username to the account asked. When you share a journal entry, or a schedule item and so each of its coming entries, each friend you picked for it is asked first, and sees your username with the entry's activity, title and times in that request. A friend who accepts sees that entry in their own Journal until its end time: its activity, title, description, times and checklist items, with your username. A friend who declines sees nothing more. If you shared it to edit, they can also tick, add and delete its items. Their phone keeps a copy until the entry ends. They see nothing else of yours, and their assistant does not see what you shared.</li>
         <li><strong>Cristian</strong>, as the operator: he has full access to the database and the photo bucket and uses it only to run the service: to fix a problem you report, to check the server for abuse, or to carry out a deletion you ask for. He does not browse other people's data.</li>
       </ul>
-      <p class="muted">Nobody else. The data is not sold, not shared with anyone you did not pick, not used for advertising, and there are no analytics. It is handed over only if the law requires it.</p>
+      <p class="muted">Nobody else. The data is not sold, not shared with anyone you did not pick, and not used for advertising. The only statistics are the usage statistics you can switch on, which hold no account (see <a href="#usage">Usage statistics</a>). It is handed over only if the law requires it.</p>
     </section>
 
     <section id="delete">
@@ -185,7 +194,7 @@ td:first-child{font-weight:700;white-space:nowrap}
         <li><strong>Access and a copy (portability):</strong> <em>Export my data</em> on the Account screen, for each app.</li>
         <li><strong>Rectification:</strong> edit the record in the app; the change syncs.</li>
         <li><strong>Erasure:</strong> delete the record in the app, or the whole account with <em>Delete account</em>.</li>
-        <li><strong>Withdrawing consent</strong> to the storage of your health data: delete the account. It does not affect what happened before.</li>
+        <li><strong>Withdrawing consent</strong> to the storage of your health data: delete the account. To usage statistics: the switch on the Account screen. Neither affects what happened before.</li>
         <li><strong>Restriction and objection:</strong> write to Cristian (see <a href="#who">Who runs this</a>). Since the server does nothing with your data beyond storing it for you, a restriction in practice means signing out or deleting the account.</li>
         <li><strong>Complaint:</strong> you can complain to a supervisory authority. Cristian is in Romania, so the authority for him is the ANSPDCP, <a href="https://www.dataprotection.ro">dataprotection.ro</a>; you can also use the one of your own country.</li>
       </ul>
